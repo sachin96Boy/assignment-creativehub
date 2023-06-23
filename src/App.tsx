@@ -4,18 +4,14 @@ import DashboardScreen from "./pages/DashboardScreen";
 
 function App() {
   const user = localStorage.getItem("User");
-  const signedInstage = user ? (
+
+  return (
     <Routes>
       <Route path="/dashboard" element={<DashboardScreen />} />
-      <Route path="*" element={<Navigate to={"/dashboard"} replace />} />
-    </Routes>
-  ) : (
-    <Routes>
       <Route path="/" element={<LoginScreen />} />
       <Route path="*" element={<Navigate to={"/"} replace />} />
     </Routes>
   );
-  return signedInstage;
 }
 
 export default App;

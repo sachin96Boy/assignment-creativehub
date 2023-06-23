@@ -24,6 +24,7 @@ export default function LoginScreen() {
       username: username,
     };
     localStorage.setItem("User", JSON.stringify(user));
+    console.log(user);
     navigate("/dashboard");
   };
   return (
@@ -56,7 +57,7 @@ export default function LoginScreen() {
                   onChange={(event) => setUsername(event.target.value)}
                 />
               </FormControl>
-              <Stack spacing={10}>
+              <Stack spacing={10} my={10}>
                 <Button
                   bg={"blue.400"}
                   color={"white"}
