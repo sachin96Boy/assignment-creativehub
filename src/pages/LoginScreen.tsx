@@ -1,10 +1,10 @@
+import { useState } from "react";
 import {
   Flex,
   Box,
   FormControl,
   FormLabel,
   Input,
-  Checkbox,
   Stack,
   Link,
   Button,
@@ -12,8 +12,20 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginScreen() {
+  const [username, setUsername] = useState("");
+
+  const navigate = useNavigate();
+  const onSubmit = (event:  React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const user = {
+      username: username,
+    };
+    localStorage.setItem("User", JSON.stringify(user));
+    navigate("/dashboard");
+  };
   return (
     <Flex
       minH={"100vh"}
@@ -35,33 +47,28 @@ export default function LoginScreen() {
           p={8}
         >
           <Stack spacing={4}>
-            <FormControl id="email">
-              <FormLabel>Email address</FormLabel>
-              <Input type="email" />
-            </FormControl>
-            <FormControl id="password">
-              <FormLabel>Password</FormLabel>
-              <Input type="password" />
-            </FormControl>
-            <Stack spacing={10}>
-              <Stack
-                direction={{ base: "column", sm: "row" }}
-                align={"start"}
-                justify={"space-between"}
-              >
-                <Checkbox>Remember me</Checkbox>
-                <Link color={"blue.400"}>Forgot password?</Link>
+            <form onSubmit={onSubmit}>
+              <FormControl id="uername">
+                <FormLabel>Username</FormLabel>
+                <Input
+                  type="text"
+                  value={username}
+                  onChange={(event) => setUsername(event.target.value)}
+                />
+              </FormControl>
+              <Stack spacing={10}>
+                <Button
+                  bg={"blue.400"}
+                  color={"white"}
+                  _hover={{
+                    bg: "blue.500",
+                  }}
+                  type="submit"
+                >
+                  Sign in
+                </Button>
               </Stack>
-              <Button
-                bg={"blue.400"}
-                color={"white"}
-                _hover={{
-                  bg: "blue.500",
-                }}
-              >
-                Sign in
-              </Button>
-            </Stack>
+            </form>
           </Stack>
         </Box>
       </Stack>
