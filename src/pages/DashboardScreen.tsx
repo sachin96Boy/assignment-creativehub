@@ -8,7 +8,9 @@ import CustomMousePointer from "../components/CustomMousePointer";
 function DashboardScreen() {
   const canvasref = useRef<HTMLCanvasElement | null>(null);
 
-  const socket = io(import.meta.env.BACKEND_URL);
+  const socket = io(import.meta.env.VITE_BACKEND_URL);
+
+  console.log(import.meta.env.VITE_BACKEND_URL);
 
   const handleMoseMove = (event: React.MouseEvent) => {
     const { clientX, clientY } = event;
