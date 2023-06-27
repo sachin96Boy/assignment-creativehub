@@ -5,7 +5,7 @@ import DashboardScreen from "./pages/DashboardScreen";
 function App() {
   // need to add auth routes here based on user
   // better to use a wrapper with the Route
-  const user = localStorage.getItem("User");
+  // const user = localStorage.getItem("User");
 
   return (
     <Routes>

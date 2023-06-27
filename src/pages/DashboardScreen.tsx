@@ -4,6 +4,7 @@ import { io } from "socket.io-client";
 
 import CanvasComponet from "../components/CanvasComponet";
 import CustomMousePointer from "../components/CustomMousePointer";
+import Nav from "../components/NavBarComponnt";
 
 function DashboardScreen() {
   const canvasref = useRef<HTMLCanvasElement | null>(null);
@@ -29,14 +30,17 @@ function DashboardScreen() {
   };
 
   return (
-    <Box className="dash-body" onMouseMove={handleMoseMove}>
-      <CustomMousePointer socket={socket} />
-      <CanvasComponet
-        canvasref={canvasref}
-        width={window.innerWidth}
-        height={window.innerHeight}
-      />
-    </Box>
+    <>
+      <Nav />
+      <Box className="dash-body" onMouseMove={handleMoseMove} display={'block'}>
+        <CustomMousePointer socket={socket} />
+        <CanvasComponet
+          canvasref={canvasref}
+          width={window.innerWidth}
+          height={window.innerHeight}
+        />
+      </Box>
+    </>
   );
 }
 
