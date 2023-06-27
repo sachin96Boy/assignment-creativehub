@@ -32,7 +32,7 @@ function DashboardScreen() {
   return (
     <>
       <Nav />
-      <Box className="dash-body" onMouseMove={handleMoseMove} display={'block'}>
+      <Box className="dash-body" onMouseMove={handleMoseMove}>
         <CustomMousePointer socket={socket} />
         <CanvasComponet
           canvasref={canvasref}

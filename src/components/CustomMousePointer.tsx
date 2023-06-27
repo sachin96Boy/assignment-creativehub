@@ -9,6 +9,7 @@ function CustomMousePointer(props: any) {
 
   useEffect(() => {
     props.socket.on("sendDatatoClient", (dataFromServer: any) => {
+      // console.log(dataFromServer);
       setValx(dataFromServer.position.x);
       setValy(dataFromServer.position.y);
       setTitle(dataFromServer.user.username);
