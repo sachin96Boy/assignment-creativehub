@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { Box } from "@chakra-ui/react";
 import { io } from "socket.io-client";
 
@@ -30,7 +30,7 @@ function DashboardScreen() {
 
   return (
     <Box className="dash-body" onMouseMove={handleMoseMove}>
-      <CustomMousePointer socket={socket}/>
+      <CustomMousePointer socket={socket} />
       <CanvasComponet
         canvasref={canvasref}
         width={window.innerWidth}
