@@ -9,6 +9,7 @@ interface CanvasComponentProps {
 }
 
 function CanvasComponet(props: CanvasComponentProps) {
+  
   useEffect(() => {
     const canvas = props.canvasref.current;
     if (!canvas) return; // Ensure canvas is available before proceeding
