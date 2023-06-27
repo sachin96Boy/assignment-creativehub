@@ -6,6 +6,7 @@ function CustomMousePointer(props: any) {
   const [valx, setValx] = React.useState(0);
   const [valy, setValy] = React.useState(0);
   const [title, setTitle] = React.useState("");
+  const [isloaded, setIsloaded] = React.useState(false);
 
   useEffect(() => {
     props.socket.on("sendDatatoClient", (dataFromServer: any) => {
@@ -13,11 +14,12 @@ function CustomMousePointer(props: any) {
       setValx(dataFromServer.position.x);
       setValy(dataFromServer.position.y);
       setTitle(dataFromServer.user.username);
+      setIsloaded(true);
     });
   }, [props.socket]);
 
   return (
-    <Box position={"relative"} top={valx} left={valy}>
+    <Box position={"relative"} top={valx} left={valy} display={!isloaded ? 'none': 'flex'}>
       <Box position={"absolute"}>
         <Flex
           color={"white"}
