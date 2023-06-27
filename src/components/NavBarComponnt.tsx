@@ -21,7 +21,7 @@ export default function Nav() {
   };
 
   return (
-    <Box bg={"gray.100"} px={4} h={'80px'}>
+    <Box bg={"gray.100"} px={4}>
       <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
         <Box>Creative-hub-assignment</Box>
 
