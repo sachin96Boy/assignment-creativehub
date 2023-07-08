@@ -17,9 +17,9 @@ Follow these steps to get started:
 3. Run `npm install` to install the dependencies.
 4. create an `.env` file on project Root directory add the following environment variable values.
 
-    ``
-    VITE_BACKEND_URL=YOUR BACKEND ENDPOINT GOES HERE
-    ``
+``
+VITE_BACKEND_URL=YOUR BACKEND ENDPOINT GOES HERE
+``
 6. Run `npm run dev` to launch the app on deveopment server.
 
 ## Dependencies
